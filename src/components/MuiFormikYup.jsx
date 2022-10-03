@@ -203,7 +203,12 @@ export default function MuiFormikYup() {
                 </Grid>
               </Box>
 
-              <Button type="submit" variant="contained" color="info">
+              <Button
+                type="submit"
+                variant="contained"
+                color="info"
+                disabled={!values.agreement}
+              >
                 Save Changes
               </Button>
             </form>
