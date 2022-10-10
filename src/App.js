@@ -1,11 +1,14 @@
 import "./App.css";
+import Builder from "./components/Builder";
+import DynamiqueForm from "./components/DynamiqueForm";
 import MuiFormikYup from "./components/MuiFormikYup";
 
 function App() {
   return (
     <div>
-
-      <MuiFormikYup />
+      <Builder />
+      {/* <DynamiqueForm /> */}
+      {/*<MuiFormikYup />  */}
     </div>
   );
 }
