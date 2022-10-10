@@ -33,16 +33,17 @@ const Builder = () => {
     choises: Yup.array(Yup.string().required('IS REQUIRED')).min(1),
   })
   const handleFormSubmit = async (values) => {
+    console.log(values)
     setTimeout(() => {
       alert(JSON.stringify(values, null, 2))
     }, 500)
   }
   return (
     <Box py={4}>
-      <h3 mb={2}>Account Setting</h3>
+      <h3 mb={4}></h3>
       <Card
         sx={{
-          p: 4,
+          p: 1,
         }}
       >
         <Formik
@@ -60,9 +61,9 @@ const Builder = () => {
             setFieldValue,
           }) => (
             <form onSubmit={handleSubmit}>
-              <Box mb={4}>
+              <Box mb={2}>
                 <Grid container spacing={3}>
-                  <Grid item md={6} xs={12}>
+                  <Grid item md={4} xs={12}>
                     <TextField
                       fullWidth
                       color="info"
@@ -76,7 +77,7 @@ const Builder = () => {
                       helperText={touched.questionTitle && errors.questionTitle}
                     />
                   </Grid>
-                  <Grid item md={6} xs={12}>
+                  <Grid item md={4} xs={12}>
                     <Autocomplete
                       fullWidth
                       disablePortal
@@ -98,7 +99,7 @@ const Builder = () => {
                       )}
                     />
                   </Grid>
-                  <Grid item md={6} xs={12}>
+                  <Grid item md={4} xs={12}>
                     <FormControlLabel
                       className="isRequired"
                       name="isRequired"
@@ -126,7 +127,7 @@ const Builder = () => {
                       }
                     />
                   </Grid>
-                  <Grid item md={6} xs={12}>
+                  <Grid item md={4} xs={12}>
                     <FieldArray
                       name="choises"
                       render={(arrayHelpers) => (
@@ -137,19 +138,23 @@ const Builder = () => {
                                 key={index}
                                 className="list-group list-group-flush"
                               >
+                                <h4>Choice :</h4>
                                 <Field name={`choises.${index}`} />
+
                                 <button
                                   type="button"
                                   onClick={() => arrayHelpers.remove(index)} // remove a friend from the list
                                 >
                                   -
                                 </button>
+
                                 <button
                                   type="button"
                                   onClick={() => arrayHelpers.insert(index, '')} // insert an empty string at a position
                                 >
                                   +
                                 </button>
+                                <Box sx={{ m: 4 }}>{}</Box>
                               </div>
                             ))
                           ) : (
@@ -167,7 +172,14 @@ const Builder = () => {
                               component="div"
                               className="invalid-feedback"
                             /> */}
-                            <button type="submit">Submit</button>
+                            <Box sx={{ m: 4 }}>{}</Box>
+                            <Button
+                              type="submit"
+                              variant="contained"
+                              color="info"
+                            >
+                              Submit
+                            </Button>
                           </div>
                         </div>
                       )}
